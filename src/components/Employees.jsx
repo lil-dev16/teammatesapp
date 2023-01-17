@@ -2,7 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 
 const Employees = () => {
-        const [employees, setEmployees] = useState( [{
+    const [teams, setTeams] = useState('TeamA')
+    const [employees, setEmployees] = useState( [{
         id: 1,
         fullName: "Bob Jones",
         designation: "JavaScript Developer",
@@ -87,20 +88,38 @@ const Employees = () => {
         teamName: "TeamD"
       }]);
     
+      const handleChangeCurrentTeam = (e) => {
+        console.log(e.target.value);
+        setTeams(e.target.value)
+      }
+
+      const handleClickCard = (e) => {
+        const newEmployees = employees.map((item) => item.id === parseInt(e.currentTarget.id) ? (item.teamName === teams) ? {...item, teamName: ''} : {...item, teamName: teams} : item)
+        setEmployees(newEmployees);
+        console.log(e.currentTarget.id);
+      }
   return (
     <div>
-        {
-        employees.map(({fullName, designation, gender}) => {
-            return(
-                <div>
-                    <img src="" alt="" />
-                    <h1>{fullName}</h1>
-                    <p>{designation}</p>
-                    <p>{gender}</p>
-                </div>
-            )
-        })
-      }
+        <select name="teams" id="" value={teams} onChange={handleChangeCurrentTeam}>
+            <option value="TeamA">Team A</option>
+            <option value="TeamB">TeamB</option>
+            <option value="TeamC">teamC</option>
+            <option value="TeamD">TeamD</option>
+        </select>
+        <div className='employ'>
+            {
+            employees.map(({id, fullName, designation, gender, teamName}) => {
+                return(
+                    <div id={id} className={teamName === teams ? 'employeeactive' : 'employee'} style={{textAlign: 'center'}} onClick={handleClickCard}>
+                        <div style={{backgroundColor: 'black', width: '100%', height: '200px'}}></div>
+                        <h1>{fullName}</h1>
+                        <p>{designation}</p>
+                        <p>{gender}</p>
+                    </div>
+                )
+            })
+          }
+        </div>
     </div>
   )
 }
