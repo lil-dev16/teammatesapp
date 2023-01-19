@@ -29,7 +29,7 @@ console.log(teamBMembers);
         const transformedGroup = groupedMembers.map((groups) => groups.team === e.currentTarget.id ? {...groups, collapsed: !groups.collapsed} : groups
         )
         setGrouped(transformedGroup)
-        setTeams(e.currentTarget.id)
+        setTeams(e.currentTarget.id);
     }
   return (
       <div>
