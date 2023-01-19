@@ -34,3 +34,13 @@ code {
   cursor: pointer;
   margin: auto;
 }
+.sel{
+  display: grid;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+select{
+  padding: 10px;
+  width: 100%;
+  margin: auto;
+}

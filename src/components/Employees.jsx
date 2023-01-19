@@ -3,7 +3,7 @@ import React from 'react'
 const Employees = ({teams, employees, handleChangeCurrentTeam, handleClickCard}) => {
     
   return (
-    <div>
+    <div className='sel'>
         <select name="teams" id="" value={teams} onChange={handleChangeCurrentTeam}>
             <option value="TeamA">Team A</option>
             <option value="TeamB">TeamB</option>
@@ -14,7 +14,7 @@ const Employees = ({teams, employees, handleChangeCurrentTeam, handleClickCard})
             {
             employees.map(({id, fullName, designation, gender, teamName}) => {
                 return(
-                    <div id={id} className={teamName === teams ? 'employeeactive' : 'employee'} style={{textAlign: 'center'}} onClick={handleClickCard}>
+                    <div key={id} id={id} className={teamName === teams ? 'employeeactive' : 'employee'} style={{textAlign: 'center'}} onClick={handleClickCard}>
                         <div style={{backgroundColor: 'black', width: '100%', height: '200px'}}></div>
                         <h1>{fullName}</h1>
                         <p>{designation}</p>

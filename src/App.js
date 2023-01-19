@@ -1,5 +1,7 @@
 import Employees from "./components/Employees";
 import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Teams from './pages/Teams'
 
 
 function App() {
@@ -110,11 +112,13 @@ function App() {
       }
   return (
     <div className="App">
+      <Header teams={teams} employees={employees}/>
       <Employees 
       teams={teams}
       employees={employees}
       handleChangeCurrentTeam={handleChangeCurrentTeam}
       handleClickCard={handleClickCard}/>
+      <Teams employees={employees} team = {teams}/>
     </div>
   );
 }
