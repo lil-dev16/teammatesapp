@@ -112,7 +112,7 @@ function App() {
       }
   return (
     <div className="App">
-      <Header teams={teams} employees={employees}/>
+      <Header teams={teams} setTeams ={setTeams} employees={employees}/>
       <Employees 
       teams={teams}
       employees={employees}

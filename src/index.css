@@ -44,3 +44,6 @@ select{
   width: 100%;
   margin: auto;
 }
+.coll{
+  display: none;
+}
