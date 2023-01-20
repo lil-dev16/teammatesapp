@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Navbar from '../components/Navbar';
 
 const Teams = ({employees, team, setTeams}) => {
     
@@ -33,6 +34,7 @@ console.log(teamBMembers);
     }
   return (
       <div>
+        <Navbar />
         <h1>Teams</h1>
         <div>
            {groupedMembers.map((mem) => {

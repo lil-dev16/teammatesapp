@@ -1,7 +1,8 @@
-import Employees from "./components/Employees";
+import Employees from "./pages/Employees";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Teams from './pages/Teams'
+import   {Route, BrowserRouter, Routes } from "react-router-dom";
 
 
 function App() {
@@ -112,13 +113,17 @@ function App() {
       }
   return (
     <div className="App">
-      <Header teams={teams} setTeams ={setTeams} employees={employees}/>
-      <Employees 
-      teams={teams}
-      employees={employees}
-      handleChangeCurrentTeam={handleChangeCurrentTeam}
-      handleClickCard={handleClickCard}/>
-      <Teams employees={employees} team = {teams}/>
+      <BrowserRouter>
+        <Header teams={teams} setTeams ={setTeams} employees={employees}/>
+        <Routes>
+          <Route path="/" element={<Employees 
+        teams={teams}
+        employees={employees}
+        handleChangeCurrentTeam={handleChangeCurrentTeam}
+        handleClickCard={handleClickCard}/>}/>
+          <Route path="/teams" element={<Teams employees={employees} team = {teams}/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

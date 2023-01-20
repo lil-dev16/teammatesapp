@@ -1,9 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const Employees = ({teams, employees, handleChangeCurrentTeam, handleClickCard}) => {
     
   return (
     <div className='sel'>
+      <Navbar />
         <select name="teams" id="" value={teams} onChange={handleChangeCurrentTeam}>
             <option value="TeamA">Team A</option>
             <option value="TeamB">TeamB</option>

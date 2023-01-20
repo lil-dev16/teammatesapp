@@ -47,3 +47,6 @@ select{
 .coll{
   display: none;
 }
+.nav_list{
+  display: flex;
+}
