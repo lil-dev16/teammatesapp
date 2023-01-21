@@ -45,7 +45,7 @@ console.log(teamBMembers);
                         <hr />
                         {mem.members.map(item => {
                             return(
-                                <div>
+                                <div key={item.fullName}>
                                     <h3>Fullname: {item.fullName}</h3>
                                     <h3>Designation: {item.designation}</h3>
                                 </div>
